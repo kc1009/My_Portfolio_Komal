@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Komal Chauhan — QA Engineer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FA;--surface:#fff;--ink:#13212C;--muted:#5A6B78;--line:#D8E0E7;--accent:#2457D6;--onaccent:#fff;--pass:#17895C;--fail:#C93C3C;--block:#B7791F;--code:#0E1A24;--codefg:#D6E4F0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D161D;--surface:#15222C;--ink:#E6EEF4;--muted:#93A5B3;--line:#25363F;--accent:#6E9BFF;--onaccent:#0D161D;--pass:#3DCB95;--fail:#F07878;--block:#E3B04B;--code:#09121A}}
+:root[data-theme="dark"]{--bg:#0D161D;--surface:#15222C;--ink:#E6EEF4;--muted:#93A5B3;--line:#25363F;--accent:#6E9BFF;--onaccent:#0D161D;--pass:#3DCB95;--fail:#F07878;--block:#E3B04B;--code:#09121A}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;line-height:1.1;margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:20px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:12px;padding-bottom:12px}
+nav b{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;margin-right:auto}
+nav a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{padding:64px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(42px,7vw,76px);font-weight:800;letter-spacing:-.03em}
+.role{font-size:20px;color:var(--muted);margin:18px 0 22px;max-width:34ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:500}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-block;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.main{background:var(--accent);color:var(--onaccent);border-color:var(--accent)}
+.run{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.run h3{font-size:16px;color:var(--muted);font-weight:500;margin-bottom:10px}
+.run ul{margin:0;padding:0}
+.run li{list-style:none;display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.st{font-weight:600;font-size:13px;min-width:48px;text-align:right}
+.st.p{color:var(--pass)}.st.f{color:var(--fail)}
+.run li .st{opacity:0;animation:tick .4s forwards;animation-delay:calc(var(--i)*.45s + .4s)}
+@keyframes tick{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(30px,4.5vw,42px);margin-bottom:22px;letter-spacing:-.02em}
+.lead{max-width:68ch}
+.note{color:var(--muted);font-size:14.5px;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.box h3{font-size:19px;margin-bottom:6px}
+.box p{margin:0;color:var(--muted);font-size:15.5px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.job h3{font-size:24px}
+.job .meta{color:var(--muted);margin:6px 0 14px;font-size:15px}
+.job ul{padding-left:20px;margin:14px 0 0}
+.job li{margin:6px 0}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:15px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:14px}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+.bugs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.bug{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--fail);border-radius:12px;padding:20px}
+.bug h3{font-size:20px;margin-bottom:12px}
+.bug dt{font-weight:600;font-size:14px;color:var(--muted);margin-top:12px}
+.bug dd{margin:2px 0 0}
+.bug ol{margin:2px 0 0;padding-left:20px}
+pre{background:var(--code);color:var(--codefg);border-radius:12px;padding:18px 20px;overflow-x:auto;font:14px/1.6 ui-monospace,Menlo,Consolas,monospace;margin:18px 0 0}
+ul.ticks{padding-left:20px;margin:12px 0}
+ul.ticks li{margin:4px 0}
+.bar{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:18px 0 14px}
+.bar i{display:block}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:15px}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;background:var(--c);vertical-align:-1px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.sum div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.sum b{display:block;font:800 34px 'Bricolage Grotesque',sans-serif}
+.sum small{color:var(--muted)}
+h3.sub{font-size:21px;margin:30px 0 4px}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:14.5px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:40px}}
+@media(prefers-reduced-motion:reduce){.run li .st{animation:none;opacity:1}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Komal Chauhan</b><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#realdge">Projects</a><a href="#cases">Test cases</a><a href="#bugs">Bug reports</a><a href="#mobile">Mobile</a><a href="#practice">Practice project</a><a href="#api">API</a><a href="#metrics">Metrics</a><a href="#contact">Contact</a></div></nav>
+
+<main class="wrap">
+<header class="hero">
+  <div>
+    <h1>Komal Chauhan</h1>
+    <p class="role">QA Engineer with 1.4 years of experience in manual testing across web, API and mobile.</p>
+    <div class="chips"><span class="chip">Manual testing</span><span class="chip">Postman</span><span class="chip">JIRA</span><span class="chip">MySQL</span><span class="chip">Selenium (trained)</span></div>
+    <div class="btns"><a class="btn main" href="mailto:Komalchauhan1250@gmail.com">Email me</a><a class="btn" href="https://linkedin.com/in/komal-chauhan-26aa16236">LinkedIn</a></div>
+  </div>
+  <div class="run" aria-label="Sample test run">
+    <h3>Sample test run — Crush &amp; Craft</h3>
+    <ul>
+      <li>Login with valid credentials<span class="st p" style="--i:0">Pass</span></li>
+      <li>Age verification for under-18 user<span class="st p" style="--i:1">Pass</span></li>
+      <li>Vendor allocation by location<span class="st p" style="--i:2">Pass</span></li>
+      <li>Refund after order cancellation<span class="st f" style="--i:3">Fail</span></li>
+      <li>Order status notification<span class="st p" style="--i:4">Pass</span></li>
+    </ul>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About me</h2>
+  <p class="lead">I test web, API and mobile applications in Agile/Scrum teams. I work on functional and regression testing, manage defects from report to closure, and keep test documentation and quality reports current for stakeholders. I work closely with developers to clarify requirements and get defects fixed. I am also learning automation with Selenium WebDriver, TestNG and Java, and I use AI tools such as ChatGPT and Claude for test case ideas and documentation.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="box"><h3>Testing types</h3><p>Functional, regression, smoke, sanity, system, integration and exploratory testing.</p></div>
+    <div class="box"><h3>API testing</h3><p>Postman — endpoints, status codes, response body, headers and data integrity.</p></div>
+    <div class="box"><h3>Mobile and cross-browser</h3><p>BrowserStack — device and browser compatibility checks.</p></div>
+    <div class="box"><h3>Automation (trained)</h3><p>Selenium WebDriver, TestNG and Java for test script development.</p></div>
+    <div class="box"><h3>Database</h3><p>MySQL — query writing, data validation and database testing.</p></div>
+    <div class="box"><h3>QA tools</h3><p>JIRA for defect tracking, Git and GitHub.</p></div>
+    <div class="box"><h3>Methodologies</h3><p>Agile/Scrum, SDLC, STLC and Requirement Traceability Matrix (RTM).</p></div>
+    <div class="box"><h3>Platforms</h3><p>Windows, Android and Linux.</p></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <article class="job">
+    <h3>QA Engineer — Hyroot Cyber Technologies Private Limited</h3>
+    <p class="meta">December 2024 – April 2026 · Profile: QA Engineer (manual, API and mobile testing)</p>
+        <ul>
+      <li>Designed and executed manual test cases for Authentication, Inventory, Payments and Order Processing.</li>
+      <li>Ran functional, regression, smoke, sanity, system, integration and exploratory tests to check stability across releases.</li>
+      <li>Tested back-end services, endpoints and data integrity with Postman.</li>
+      <li>Checked mobile and cross-browser compatibility on BrowserStack.</li>
+      <li>Logged defects in JIRA with reproduction steps and severity/priority, then coordinated retesting after fixes.</li>
+      <li>Wrote and maintained Test Plans, Test Cases, RTM and Defect Reports.</li>
+      <li>Validated data accuracy, integrity and consistency with MySQL queries.</li>
+      <li>Joined daily standups, sprint planning and retrospectives, and sent daily and weekly QA status reports to clients and management.</li>
+      <li>Maintained the regression and smoke suites to protect code quality across releases.</li>
+    </ul>
+  </article>
+</section>
+
+<section id="realdge">
+  <h2>Projects</h2>
+  <article class="job" style="margin-bottom:16px">
+    <h3>Crush &amp; Craft (e-commerce liquor retail platform)</h3>
+    <p class="meta">Hyroot Cyber Technologies · December 2024 – April 2026 · Web and mobile</p>
+    <p>An online liquor ordering platform with vendor-based fulfillment. It includes authentication, product and inventory management, promotions, secure payments, order management, real-time tracking and location-based vendor allocation. It supports multi-vendor onboarding with role-based access for admins, vendors and delivery partners, age verification for regulatory compliance, ratings and reviews, cancellation and refund workflows, and notifications for order and delivery status.</p>
+    <div class="grid">
+      <div class="box"><h3>User roles</h3><p>Admin, Vendor, Delivery partner and Customer.</p></div>
+      <div class="box"><h3>Modules tested</h3><p>Authentication, Inventory, Payments, Order Processing, Age verification, Refunds and Notifications.</p></div>
+      <div class="box"><h3>Testing done</h3><p>Functional, regression, smoke, sanity, system, integration, exploratory, API, database and mobile testing.</p></div>
+    </div>
+    <ul>
+      <li>Designed and executed manual test cases and kept the regression and smoke suites up to date.</li>
+      <li>Tested APIs in Postman and validated data with MySQL queries.</li>
+      <li>Checked mobile and cross-browser behaviour on BrowserStack (<a href="#mobile">see mobile testing</a>).</li>
+    </ul>
+  </article>
+  <article class="job">
+    <h3>Realdge (real estate platform)</h3>
+    <p class="meta">Hyroot Cyber Technologies · Web and mobile app · Buying and selling of property</p>
+    <p>Realdge is a platform for buying and selling property. Agents, managers, directors and admins each get their own access and work through a shared set of modules.</p>
+    <div class="grid">
+      <div class="box"><h3>User roles</h3><p>Agent, Manager, Director and Admin, each with different access and views.</p></div>
+      <div class="box"><h3>Modules</h3><p>Dashboard, Leads, Data Calling, Meetings, Reports and Marketing.</p></div>
+      <div class="box"><h3>Platforms</h3><p>Web application and mobile app, tested on both.</p></div>
+    </div>
+    <ul>
+      <li>Wrote test cases for each module and checked what every role can see and do.</li>
+      <li>Tested the lead flow: creating a lead, assigning it, updating its status and following it up.</li>
+      <li>Checked that dashboard and report figures match the underlying lead, call and meeting data.</li>
+      <li>Tested scheduling and updates for data calling and meetings.</li>
+      <li>Ran the same flows on the mobile app and in the web browser to confirm consistent behaviour.</li>
+    </ul>
+  </article>
+  <h3 class="sub">Sample test cases</h3>
+  <p class="note">Illustrative cases with dummy data, not taken from client work.</p>
+  <div class="scroll" style="margin-top:14px"><table>
+    <thead><tr><th>ID</th><th>Module</th><th>Scenario</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>RD-01</td><td>Access control</td><td>Agent tries to open a page that only Admin can use.</td><td>Access is denied and no restricted data is shown.</td></tr>
+      <tr><td>RD-02</td><td>Leads</td><td>Create a lead with all mandatory fields.</td><td>Lead is saved and appears in the lead list.</td></tr>
+      <tr><td>RD-03</td><td>Leads</td><td>Create a lead with a mandatory field empty.</td><td>Validation message appears and the lead is not saved.</td></tr>
+      <tr><td>RD-04</td><td>Leads</td><td>Manager assigns a lead to an agent.</td><td>The lead shows under that agent and the assignment is recorded.</td></tr>
+      <tr><td>RD-05</td><td>Data calling</td><td>Agent logs the outcome of a call.</td><td>Outcome and notes are saved against the right lead.</td></tr>
+      <tr><td>RD-06</td><td>Meetings</td><td>Schedule a meeting with a lead for a future date.</td><td>Meeting appears in the calendar for the agent with the correct date and time.</td></tr>
+      <tr><td>RD-07</td><td>Reports</td><td>Open a report after adding new leads and calls.</td><td>Report counts match the data in the Leads and Data Calling modules.</td></tr>
+      <tr><td>RD-08</td><td>Mobile app</td><td>Create a lead on the app, then open it on the web.</td><td>The same lead details appear on both.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="cases">
+  <h2>Sample test cases</h2>
+  <p class="lead">Examples written for the kind of modules I tested. They use dummy data only.</p>
+  <div class="scroll" style="margin-top:18px"><table>
+    <thead><tr><th>ID</th><th>Module</th><th>Scenario</th><th>Steps / data</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>TC-01</td><td>Authentication</td><td>Login with valid credentials</td><td>Enter a registered email and password; click Login.</td><td>User logs in and reaches the home page.</td></tr>
+      <tr><td>TC-02</td><td>Authentication</td><td>Login with wrong password</td><td>Enter a registered email and an incorrect password.</td><td>Login is rejected with a clear error message.</td></tr>
+      <tr><td>TC-03</td><td>Age verification</td><td>Under-18 user tries to order</td><td>Register with a date of birth under 18 and open checkout.</td><td>Order is blocked with an age-restriction message.</td></tr>
+      <tr><td>TC-04</td><td>Inventory</td><td>Out-of-stock product</td><td>Open a product with stock 0 and try to add it to the cart.</td><td>Add to cart is disabled or an out-of-stock message appears.</td></tr>
+      <tr><td>TC-05</td><td>Vendor allocation</td><td>Location-based vendor</td><td>Enter a delivery pincode served by a vendor.</td><td>Only vendors serving that location are shown.</td></tr>
+      <tr><td>TC-06</td><td>Payments</td><td>Payment failure</td><td>Place an order and fail the payment in the sandbox.</td><td>Order is not confirmed and the user sees a retry option.</td></tr>
+      <tr><td>TC-07</td><td>Orders</td><td>Cancel order and refund</td><td>Cancel a paid order before dispatch.</td><td>Order status is Cancelled and the refund is initiated.</td></tr>
+      <tr><td>TC-08</td><td>Notifications</td><td>Order status update</td><td>Move an order to Out for delivery.</td><td>Customer receives a matching notification.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="bugs">
+  <h2>Sample bug reports</h2>
+  <p class="lead">Illustrative reports that show how I write defects. They are not taken from client work.</p>
+  <div class="bugs" style="margin-top:18px">
+    <article class="bug">
+      <h3>Refund not initiated after order cancellation</h3>
+      <dl>
+        <dt>Steps</dt><dd><ol><li>Place and pay for an order.</li><li>Cancel it before dispatch.</li><li>Check order and refund status.</li></ol></dd>
+        <dt>Expected</dt><dd>Order shows Cancelled and a refund is initiated.</dd>
+        <dt>Actual</dt><dd>Order shows Cancelled but no refund is created.</dd>
+        <dt>Severity / priority</dt><dd>High / High</dd>
+      </dl>
+    </article>
+    <article class="bug">
+      <h3>Age check can be skipped through the back button</h3>
+      <dl>
+        <dt>Steps</dt><dd><ol><li>Enter an under-18 date of birth.</li><li>Get the restriction message.</li><li>Press Back and continue to checkout.</li></ol></dd>
+        <dt>Expected</dt><dd>User stays blocked from ordering.</dd>
+        <dt>Actual</dt><dd>Checkout opens without a new age check.</dd>
+        <dt>Severity / priority</dt><dd>Critical / High</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section id="mobile">
+  <h2>Mobile testing — Crush &amp; Craft</h2>
+  <p class="lead">The platform is used mostly on phones, so I tested it on mobile browsers and Android devices through BrowserStack as well as on desktop. Below are sample cases for the areas I checked.</p>
+  <div class="grid">
+    <div class="box"><h3>Devices and browsers</h3><p>Android phones with different screen sizes and OS versions; Chrome, Safari and Samsung Internet on BrowserStack.</p></div>
+    <div class="box"><h3>Focus areas</h3><p>Responsive layout, touch actions, keyboards, location permission, network changes, interruptions and notifications.</p></div>
+  </div>
+  <div class="scroll" style="margin-top:18px"><table>
+    <thead><tr><th>ID</th><th>Area</th><th>Scenario</th><th>Expected result</th></tr></thead>
+    <tbody>
+      <tr><td>MT-01</td><td>Layout</td><td>Open the product listing in portrait and landscape.</td><td>No overlapping or cut-off content; images, prices and buttons stay readable.</td></tr>
+      <tr><td>MT-02</td><td>Touch</td><td>Tap Add to cart and the quantity buttons.</td><td>Each tap registers once; buttons are easy to hit and give feedback.</td></tr>
+      <tr><td>MT-03</td><td>Keyboard</td><td>Fill phone number and pincode at checkout.</td><td>Numeric keyboard appears and the active field is not hidden by the keyboard.</td></tr>
+      <tr><td>MT-04</td><td>Location</td><td>Allow, then deny, location permission.</td><td>Allowed: nearby vendors load. Denied: user can enter a pincode manually.</td></tr>
+      <tr><td>MT-05</td><td>Network</td><td>Switch from Wi-Fi to mobile data during checkout.</td><td>No duplicate order; a clear message and retry option appear if the request fails.</td></tr>
+      <tr><td>MT-06</td><td>Interruption</td><td>Receive a call or switch apps during payment.</td><td>Payment and order status are correct when the user returns.</td></tr>
+      <tr><td>MT-07</td><td>Notifications</td><td>Change order status and tap the notification.</td><td>Notification arrives with the right status and opens the order.</td></tr>
+      <tr><td>MT-08</td><td>Compatibility</td><td>Run the main purchase flow on Chrome, Safari and Samsung Internet.</td><td>Behaviour and layout are consistent across browsers.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="practice">
+  <h2>Practice project — Automation Exercise</h2>
+  <p class="lead">A public demo e-commerce website that I use to practise end-to-end testing with dummy data only.</p>
+  <div class="grid">
+    <div class="box"><h3>Modules</h3><p>Signup and login, product listing and search, cart, checkout and order confirmation, contact form.</p></div>
+    <div class="box"><h3>Test types</h3><p>Functional, smoke, regression and exploratory testing, plus API checks in Postman.</p></div>
+    <div class="box"><h3>Tools</h3><p>JIRA-style bug reports, Postman, browser DevTools and BrowserStack.</p></div>
+  </div>
+</section>
+
+<section id="api">
+  <h2>API testing with Postman</h2>
+  <p class="lead">For each endpoint I check the following.</p>
+  <ul class="ticks">
+    <li>Status code matches the API contract.</li>
+    <li>Response body has the expected structure and data types.</li>
+    <li>Required fields are present and values are valid.</li>
+    <li>Response time is within the agreed limit.</li>
+    <li>Headers such as Content-Type are correct.</li>
+    <li>Negative cases return suitable error codes and messages.</li>
+  </ul>
+<pre>pm.test("Status code is 200", function () {
+  pm.response.to.have.status(200);
+});
+pm.test("Response is JSON", function () {
+  pm.response.to.be.json;
+});
+pm.test("Response time is under 2000 ms", function () {
+  pm.expect(pm.response.responseTime).to.be.below(2000);
+});</pre>
+</section>
+
+<section id="metrics">
+  <h2>Testing at a glance</h2>
+  <p class="lead">Approximate figures across my 1.4 years on the project.</p>
+  <div class="sum">
+    <div><b>~450</b><small>Test cases designed</small></div>
+    <div><b>~120</b><small>Regression suite cases</small></div>
+    <div><b>~30</b><small>Smoke suite cases</small></div>
+    <div><b>~180</b><small>Defects logged in JIRA</small></div>
+  </div>
+  <h3 class="sub">Typical release cycle</h3>
+  <div class="bar" role="img" aria-label="104 passed, 11 failed, 5 blocked out of 120">
+    <i style="width:86.7%;background:var(--pass)"></i><i style="width:9.2%;background:var(--fail)"></i><i style="width:4.1%;background:var(--block)"></i>
+  </div>
+  <div class="legend"><span style="--c:var(--pass)">Passed 104</span><span style="--c:var(--fail)">Failed 11</span><span style="--c:var(--block)">Blocked 5</span><span>Total executed 120</span></div>
+</section>
+
+<section id="education">
+  <h2>Education and training</h2>
+  <div class="grid">
+    <div class="box"><h3>MCA</h3><p>IIMT University, Meerut — 81%</p></div>
+    <div class="box"><h3>BCA</h3><p>Chaudhary Charan Singh University, Meerut — 72%</p></div>
+    <div class="box"><h3>Test Automation &amp; Selenium WebDriver</h3><p>Automation Testing Academy — Selenium framework, TestNG, script development and best practices.</p></div>
+    <div class="box"><h3>Linux System Administration</h3><p>IIT Kanpur — commands, file systems, permissions and shell scripting.</p></div>
+  </div>
+  <h3 class="sub">Strengths</h3>
+  <ul class="ticks">
+    <li>Analytical, with strong troubleshooting in defect investigation.</li>
+    <li>Careful with detail and committed to quality.</li>
+    <li>Quick to learn new tools and technologies.</li>
+    <li>Self-motivated and adaptable in Agile teams.</li>
+    <li>Clear communicator who works well across teams.</li>
+  </ul>
+  <p class="note">Languages: English (professional), Hindi (native).</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p class="lead">Meerut, Uttar Pradesh</p>
+  <div class="btns">
+    <a class="btn main" href="mailto:Komalchauhan1250@gmail.com">Komalchauhan1250@gmail.com</a>
+    <a class="btn" href="tel:+916398338231">+91 6398338231</a>
+    <a class="btn" href="https://linkedin.com/in/komal-chauhan-26aa16236">LinkedIn</a>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Komal Chauhan · QA Engineer. Test cases and bug reports on this page are illustrative samples with dummy data.</div></footer>
+</body>
+</html>
